@@ -1,0 +1,15 @@
+{
+    "toLint": ["./higherOrder.ml", "./tree.ml", "./setTest.ml", "./listSet.ml", 
+      "./treeSet.ml", "./vocab.ml"],
+    "global": {
+         "disable": ["UseIter"]
+    }, 
+    "locals": [ 
+      { "lookup": {"disable": ["IfToOrInv"]} },
+      { "inorder": {"disable": ["LitPrepend"]} },
+      { "test": {"disable": ["EqOption"]} },
+      { "is_empty": {"disable": ["EqOption"]} },
+      { "fold" : { "disable": ["UseFold"]} },
+      { "transform": {"disable" : ["UseMap"]} }
+    ]
+}
