@@ -1,0 +1,108 @@
+=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=
+CIS 1200 HW07 README
+PennKey: cbegg
+=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=
+
+============
+=: Task 2 :=
+============
+
+- Do you plan on creating any new classes in your design? If so, what classes
+  are you making, what do they store, and what behaviors do they have?
+    I plan on creating two new classes for my design: a User class and a Channel class. These classes will store the
+    respective data required for each Object; the User class will store the userId and username of each user, while
+    the Channel class will store the userId and username of the owner, the privacy of the channel (in preparation for
+    Task 5). The User class and the Channel class will both have getters and setters in order to access and modify the
+    private instance variables.
+
+- How do you plan on storing what users are registered on the server?
+    I plan on using a TreeMap called regUsers that uses the userId as the key and the username as the value.
+
+- How do you plan on keeping track of which user has which user ID, considering
+  the fact that the user's nickname can change over the course of the program?
+    I plan on using the User class to store, access, and update the values of the userId and nickname when necessary
+    using getter and setter functions such as getUserId()/getName() and setUserId()/setName().
+
+- How do you plan on storing what users are in a channel?
+    I plan on using a TreeMap called members that is a part of the Channel class and uses the userId as the key and
+    the username as the value.
+
+- How do you plan on keeping track of which user is the owner of each channel?
+    I plan to keep track of which user is the owner of each channel by specifically making the owner's userId and
+    username inputs of the Channel constructor, so that it is easy to access the owner of the channel.
+
+- Justify your choice of collections (Set, Map, or List) for the
+  collections you use in your design.
+    I plan to use a combination of TreeMaps, TreeSets, and LinkedLists for my design. I am using TreeMaps for my main
+    collections because I personally think that of three data structures, they are the best suited for this design.
+    This is due to the fact that they hold both a key and a value, which makes using a TreeMap to store the key
+    (userId) and value (username) for a user more intuitive to implement. Further, unlike LinkedLists, TreeMaps (and
+    TreeSets) cannot have duplicates, which is important because every userId and username must be unique. All of this
+    made TreeMaps the best choice for storing a majority of the data in the project. I used LinkedLists as a secondary
+    data structure for when I needed to return or broadcast a collection. I used a TreeSet in place of a LinkedList
+    when I needed to make sure that the list did not contain duplicates in a for each loop.
+
+
+============
+=: Task 3 :=
+============
+
+- Did you make any changes to your design while doing this task? Why?
+    Yes; I decided to scrape the idea of using a User class. I did this because I felt that with the setup of the
+    TreeMap taking both a key and a value, and the fact that I only needed to represent two key pieces of information
+    for each user (the userId and the username), I felt that eliminating the User class created a more streamlined
+    implementation of the program without adding unnecessary files.
+
+
+============
+=: Task 4 :=
+============
+
+- Did you make any changes to your design while doing this task? Why?
+    I did not make any major overall changes to my design during Task 4, but after talking to one of the TAs at office
+    hours, I considered going back on my decision to delete my User class. However, even though not having a User class
+    made certain aspects of the project more difficult, it made other aspects less complicated. Further, the design and
+    setup that I had been using for the rest of the project was working well for implementing the functions in Task 4,
+    so I did not see any pressing reason to substantially adjust my strategy. In the interim period between when I
+    completed Task 4 and started Task 5, I did some refactoring both on my own and using the auto-style features built
+    in to Intellij to fix some minor high and low level style flaws.
+
+
+============
+=: Task 5 :=
+============
+
+- How do you plan on keeping track of which channels are invite-only?
+    I plan on keeping track of which channels are invite-only using a boolean called privacy which is given a value by
+     the value createCommand.isInviteOnly() in the createChannel() function; this boolean privacy will be part of the
+     constructor for the Channel class and will be able to be access via the function getPrivacy().
+
+- Will you make any changes to your work from before in order to make
+  implementing invite-only channels easier?
+    There are no specific changes that I would make as of right now to make implementing the invite-only property of
+    channels easier; thus far, my current design plan has worked pretty well and has not been overly complicated.
+
+
+============
+=: Task 6 :=
+============
+
+- Did you have to make any changes to your design in Task 6? Why?
+    As part of the refactoring for Task 6, I added many more test cases than I added when I was first designing my
+    code, as I now have a better understanding of the project as a whole after completing it. Upon adding several of
+    these test cases, I had to rethink parts of the design of my code in order to ensure that it was able to handle
+    some edge cases that I had not previously considered; a few examples of these edge cases that I had to make
+    sure were properly handled include if the owner of a channel changes their nickname and if the owner of a channel
+    decides to leave a channel. I also realized that when writing the deregister function, I was erroneously trying to
+    remove a user from the regUser TreeMap in the middle of the iteration, which caused some issues that I had to
+    rework. Further, I had to rework my KickUser() function to ensure that the program was able to handle the owner
+    kicking themselves out of the channel (therefore deleting the channel).
+
+- If you were to redo this assignment, what changes (if any) would you make in
+  how you designed your code?
+    If I were to redo this assignment, the main change that I would make in how I designed my code is that for my
+    regUsers TreeMap and members TreeMap, I would have made the username the key and the userId the value, which is the
+    opposite of what I did on this assignment (I used the userId as the key and the username as the value). This did
+    not make enough of a difference when I was working on the program to warrant going back through and switching
+    each and every function, but if I were to start again from scratch, I would most likely make the username the key
+    and the userId the value. I also would reconsider the benefits of potentially implementing a User class.
