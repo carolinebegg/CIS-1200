@@ -1,0 +1,9 @@
+{
+    "toLint": ["./dna.ml", "./dna.mli", "./dnaTest.ml"],
+    "global": {
+         "disable": ["UseMap", "UseIter", "UseFold"]
+    }, 
+    "locals": [ 
+      { "string_of_ape": { "disable": ["NestedIf"] } }
+    ]
+}
