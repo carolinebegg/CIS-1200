@@ -1,0 +1,14 @@
+{
+    "toLint": ["./imp.ml", "./queueTest.ml", "./linkedQueue.ml", "./simpleQueue.ml", "./deque.ml", "./dequeTest.ml", "./graph.ml"],
+    "global": {
+         "disable": ["UseMap", "UseIter", "UseFold", "IfNotCond"]
+    }, 
+    "locals": [ 
+      { "test": {"disable": ["EqOption"]} },
+      { "is_empty": {"disable": ["EqOption"]} },
+      { "deq": {"disable": ["EqOption"]} },
+      { "has_cycle": {"disable": ["IfToOr"]} }
+    ]
+}
+
+
