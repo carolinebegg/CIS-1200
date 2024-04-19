@@ -1,0 +1,8 @@
+{
+    "toLint": ["./intro.ml"],
+    "global": {
+         "disable": ["UseMap", "UseIter", "UseFold", "NestedIf"]
+    }, "locals": [
+        { "test": {"disable": ["EqList"]}}
+    ]
+}
